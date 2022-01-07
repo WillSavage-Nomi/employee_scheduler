@@ -1,0 +1,34 @@
+{
+    "schedule_list":[
+        {
+            "day_of_the_week": 1,
+            "start_hour": 8,
+            "end_hour": 5,
+            "employee_id": "E00001",
+            "base_pay": 10,
+            "shift_list": "Day Shift",
+            "weekend_bonus": 0,
+            "night_bonus": 0
+        },
+        {
+            "day_of_the_week": 4,
+            "start_hour": 21,
+            "end_hour": 2,
+            "employee_id": "E00002",
+            "base_pay": 15,
+            "shift_list": "Night Shift",
+            "weekend_bonus": 0,
+            "night_bonus": 90
+        },
+        {
+            "day_of_the_week": 6,
+            "start_hour": 9,
+            "end_hour": 6,
+            "employee_id": "E00003",
+            "base_pay": 12,
+            "shift_list": "Weekend Shift",
+            "weekend_bonus": 96,
+            "night_bonus": 0
+        }
+    ]
+}
