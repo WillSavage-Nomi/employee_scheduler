@@ -7,7 +7,6 @@ message Shift {
     DayOfTheWeek day_of_the_week = 1;
     HourOfTheDay start_hour = 2;
     HourOfTheDay end_hour = 3;
-    Employee employee = 4;
 }
 
 // defines values for days of the week

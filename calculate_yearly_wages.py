@@ -1,3 +1,4 @@
+
 import scheduler_pb2
 import json
 from google.protobuf.json_format import MessageToDict
@@ -10,14 +11,19 @@ shift_message = scheduler_pb2.Shift()
 shift_message.day_of_the_week = data["schedule_list"][0]["day_of_the_week"]
 shift_message.start_hour = data["schedule_list"][0]["start_hour"] # this gives back EIGHT I want 8
 shift_message.end_hour = data["schedule_list"][0]["end_hour"] # this gives back FIVE I want 5
-shift_message.employee.employee_id = data["schedule_list"][0]["employee_id"]
-shift_message.employee.base_pay = data["schedule_list"][0]["base_pay"]
-shift_message.employee.shift_list.add(shift_name = data["schedule_list"][0]["shift_list"]) # used for repeated items
-shift_message.employee.weekend_bonus = data["schedule_list"][0]["weekend_bonus"]
-shift_message.employee.night_bonus = data["schedule_list"][0]["night_bonus"]
 
 
-dict_object = MessageToDict(shift_message)
+employee_message = scheduler_pb2.Employee()
+employee_message.employee_id = data["schedule_list"][0]["employee_id"]
+employee_message.base_pay = data["schedule_list"][0]["base_pay"]
+employee_message.shift_list.add(shift_name = data["schedule_list"][0]["shift_list"]) # used for repeated items
+employee_message.weekend_bonus = data["schedule_list"][0]["weekend_bonus"]
+employee_message.night_bonus = data["schedule_list"][0]["night_bonus"]
 
 
-print(dict_object)
+shift_dict = MessageToDict(shift_message, including_default_value_fields=True)
+employee_dict = MessageToDict(employee_message, including_default_value_fields=True)
+final_dict = {**shift_dict, **employee_dict}
+
+
+print(final_dict)
